@@ -4,14 +4,16 @@ import math
 
 #delta
 dt=0.01
+
 # Coordonnées des points A et B
-xa,ya=1,1
-xb,yb=10,5
+Xa,Ya=1,1
+Xb,Yb=10,5
+
 # nombre d'images
 nImage=100
 
 # Centre et rayon du cercle
-xc,yc=1,1
+Xc,Xc=1,1
 r=0.1
 
 # Définition de téta, défini sur [0,2pi[
@@ -19,9 +21,9 @@ teta=np.linspace(0,2*np.pi,100)
 
 #définition du cercle:
 # les abscisses
-x=xc+r*np.cos(teta)
+x=Xc+r*np.cos(teta)
 # les ordonnées:
-y=yc+r*np.sin(teta)
+y=Xc+r*np.sin(teta)
 
 # boucle pour l'animation
 for i in range(nImage):
@@ -33,7 +35,7 @@ for i in range(nImage):
 
     # Déplacement
     else:
-        x=x+((xb-xa)/nImage)
-        y=y+((yb-ya)/nImage)
+        x=x+((Xb-Xa)/nImage)
+        y=y+((Yb-Ya)/nImage)
         line.set_data(x,y)
     plt.pause(dt)
