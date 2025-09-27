@@ -35,10 +35,10 @@ Xa,Ya=1,1
 Xm,Ym=10,random.randint(1,10)
 
 # nombre d'images
-nImage=100
+nImageOriginal=100 
 
 # Centre et rayon du cercle
-Xc,Yc=1,1
+Xc,Yc=1,random.randint(1,3)
 r=0.1
 
 # Définition de téta, défini sur [0,2pi[
@@ -50,38 +50,32 @@ x=Xc+r*np.cos(teta)
 # les ordonnées:
 y=Yc+r*np.sin(teta)
 
-
 # Définition du plan sur x et y sur [0,10]
-plt.xlim(0, 10)
-plt.ylim(0, 10)
+limit=10
+plt.xlim(0, limit)
+plt.ylim(0, limit)
+# Creation de la boule
+line, = plt.plot(x,y)
+
+# Si un des 4 bords touchés
+# On modifie Xm ou Xy pour modifier le trajet de la balle
+def verifyBorderAxisX(Xm,Ym) :
+    global nImage
+    # Bord droite gauche touché
+    if x[0]>limit or x[0]<0:
+        return -1*(Xm),Ym
+    # Bord haut bas touché
+    if y[0]>limit or y[0]<0:
+        return Xm,-1*(Ym)
+    # Valeur inchangé sinon
+    return Xm,Ym
 
 # boucle pour l'animation (avant impact)
-for i in range(nImage):
-
-    # Initialisation
-    if i == 0:
-        line, = plt.plot(x,y)
-
+while True:
+    Xm,Ym = verifyBorderAxisX(Xm,Ym)
     # Déplacement
-    else:
-        x=x+((Xm-Xa)/nImage)
-        y=y+((Ym-Ya)/nImage)
-        line.set_data(x,y)
-    plt.pause(dt)
+    x=x+((Xm-Xa)/nImage)
+    y=y+((Ym-Ya)/nImage)
+    line.set_data(x,y)
+    plt.pause(dt)   
 
-Xm=-1*(Xm)
-
-# boucle pour l'animation opposé (apres impact)
-for i in range(nImage):
-
-    # Initialisation
-    if i == 0:
-        line, = plt.plot(x,y)
-        plt.axis([0,10,0,10])
-
-    # Déplacement
-    else:
-        x=x+((Xm-Xa)/nImage)
-        y=y+((Ym-Ya)/nImage)
-        line.set_data(x,y)
-    plt.pause(dt)
