@@ -35,7 +35,7 @@ Xa,Ya=1,1
 Xm,Ym=10,random.randint(1,10)
 
 # nombre d'images
-nImageOriginal=100 
+nImage=100 # Valeur qui ne va jamais changé
 
 # Centre et rayon du cercle
 Xc,Yc=1,random.randint(1,3)
