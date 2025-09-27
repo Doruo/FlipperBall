@@ -50,13 +50,17 @@ x=Xc+r*np.cos(teta)
 # les ordonnées:
 y=Yc+r*np.sin(teta)
 
+
+# Définition du plan sur x et y sur [0,10]
+plt.xlim(0, 10)
+plt.ylim(0, 10)
+
 # boucle pour l'animation (avant impact)
 for i in range(nImage):
 
     # Initialisation
     if i == 0:
         line, = plt.plot(x,y)
-        plt.axis([0,10,0,10])
 
     # Déplacement
     else:
@@ -65,7 +69,7 @@ for i in range(nImage):
         line.set_data(x,y)
     plt.pause(dt)
 
-Xm,Ym=-1*(Xm),(Ym)
+Xm=-1*(Xm)
 
 # boucle pour l'animation opposé (apres impact)
 for i in range(nImage):
