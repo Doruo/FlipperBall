@@ -62,10 +62,14 @@ line, = plt.plot(x,y)
 def verifyBorderAxisX(Xm,Ym) :
     global nImage
     # Bord droite gauche touché
-    if x[0]>limit or x[0]<0:
+    if x[0]>=limit:
+        return -1*(Xm),Ym
+    elif x[0]<=0:
         return -1*(Xm),Ym
     # Bord haut bas touché
-    if y[0]>limit or y[0]<0:
+    elif y[0]<=0:
+        return Xm,-1*(Ym)
+    elif y[0]>=limit:
         return Xm,-1*(Ym)
     # Valeur inchangé sinon
     return Xm,Ym
@@ -73,6 +77,8 @@ def verifyBorderAxisX(Xm,Ym) :
 # boucle pour l'animation (avant impact)
 while True:
     Xm,Ym = verifyBorderAxisX(Xm,Ym)
+    print(x[0])
+    print(y[0])
     # Déplacement
     x=x+((Xm-Xa)/nImage)
     y=y+((Ym-Ya)/nImage)
