@@ -2,6 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 """
+Haye Marc 
+Ferhani Hicham
+G2
+
 Questions
 
 1)

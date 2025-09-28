@@ -4,6 +4,10 @@ import math
 import random
 
 """
+Haye Marc 
+Ferhani Hicham
+G2
+
 - PARTIE 3 -
 
 1) On sait qu'au moment de l'impact, la boule va effectuer 

@@ -2,6 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
+"""
+Haye Marc 
+Ferhani Hicham
+G2
+"""
+
 #delta
 dt=0.01
 
